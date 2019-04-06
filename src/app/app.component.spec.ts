@@ -1,11 +1,13 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { TicComponent } from './tic/tic.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        TicComponent
       ],
     }).compileComponents();
   }));
@@ -22,10 +24,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('tic-tac-toe');
   });
 
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to tic-tac-toe!');
-  });
 });
