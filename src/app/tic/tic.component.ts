@@ -10,7 +10,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicComponent implements OnInit {
 
-
   constructor() {
     this.reset();
   }
@@ -37,11 +36,4 @@ export class TicComponent implements OnInit {
   reset() {
     this.turns = ['', '', '', '', '', '', '', '', ''];
   }
-
-  // function reset() {
-  //   turns = ["#","#","#","#","#","#","+","#"];
-  //   count = 0;
-  //   $(".tic").text("#");
-  //   gameOn = true;
-  // }
 }
