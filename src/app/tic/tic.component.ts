@@ -20,7 +20,7 @@ export class TicComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClickMe(buttonIndex: number) {
+  onClick(buttonIndex: number) {
     if (this.turns[buttonIndex] !== '') {
       return;
     }
