@@ -24,9 +24,9 @@ Build a two player tic tac toe app where a game is played by alternating clicks 
 
 ## Play Board Preview
 
-<img src="https://github.com/jiangxiaoxuan/tic-tac-toe/raw/master/screenshots/tic_end.png" width="300" />
-
 <img src="https://github.com/jiangxiaoxuan/tic-tac-toe/raw/master/screenshots/tic_in_progress.png" width="300" />
+
+<img src="https://github.com/jiangxiaoxuan/tic-tac-toe/raw/master/screenshots/tic_end.png" width="300" />
 
 ## Development server
 
