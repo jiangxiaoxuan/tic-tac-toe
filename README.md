@@ -1,6 +1,20 @@
 # TicTacToe
+## Requirements
+Build a two player tic tac toe app where a game is played by alternating clicks until the game is won by X, O or is a tie.
+## How to run the game
+1. Clone locally: `git clone https://github.com/jiangxiaoxuan/tic-tac-toe.git`
+2. Install dependencies: `npm install`
+3. Start the app: `ng serve --open` 
+## Some highlight features
+1. There is message on top of the game board to indicate current player's turn
+2. When the game end with any one of "X win" "O win" and "tie", no more changes or clicks will be allowed
+3. Restart the game by clicking the "reset" button
+## Features to be implemented
+1. Fully responsive board
+2. Multiple games to be played at the same time
+3. Select which player goes first (now "X" will always start first)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+## Play Board Preview
 
 ## Development server
 
