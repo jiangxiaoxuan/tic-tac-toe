@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+const WIN_CONDITIONS: string[] = ['012', '345', '678', '036', '147', '258', '048', '246'];
+
 /**
  * TicComponent is a component for tic-tac-toe game.
  */
@@ -15,11 +17,8 @@ export class TicComponent implements OnInit {
   }
 
   turns: string[];
-  status = 'O';
-
-  // TODO: make it a constant
-  winConditions: string[] = ["012", "345", "678","036","147","258","048","246"];
-  gameEnd: boolean = false;
+  status: string;
+  gameEnd = false;
 
   ngOnInit() {
   }
@@ -35,17 +34,20 @@ export class TicComponent implements OnInit {
       this.status = 'X';
       this.turns[buttonIndex] = this.status;
     }
-    this.isWin(this.winConditions, this.status);
+    this.isWin(this.status);
   }
 
   reset() {
     this.turns = ['', '', '', '', '', '', '', '', ''];
+    this.status = 'O';
   }
 
-  isWin(winConditions, status) {
-    for (var winCondition of winConditions) {
-      if ((this.turns[winCondition.charAt(0)] === this.turns[winCondition.charAt(1)]) && (this.turns[winCondition.charAt(1)] === this.turns[winCondition.charAt(2)]) && this.turns[winCondition.charAt(0)] !== "") {
-         console.log( status + " wins");
+  isWin(status) {
+    for (let winCondition of WIN_CONDITIONS) {
+      if (this.turns[winCondition.charAt(0)] === this.turns[winCondition.charAt(1)] && 
+          this.turns[winCondition.charAt(1)] === this.turns[winCondition.charAt(2)] && 
+          this.turns[winCondition.charAt(0)] !== '') {
+         console.log(status + ' wins');
          this.gameEnd = true;
       }
     }

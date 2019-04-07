@@ -48,7 +48,6 @@ describe('TicComponent', () => {
     expect(component.turns[1]).toBe('');
   });
 
-
   it('should return isWin message when a win condition appears', () => {
     component.onClick(0);
     component.onClick(1);
@@ -56,6 +55,18 @@ describe('TicComponent', () => {
     component.onClick(2);
     component.onClick(6);
     expect(component.gameEnd).toBe(true);
+    expect(component.status).toBe('X');
+  });
+
+  it('should return isWin message when a win condition appears', () => {
+    component.onClick(1);
+    component.onClick(0);
+    component.onClick(2);
+    component.onClick(3);
+    component.onClick(4);
+    component.onClick(6);
+    expect(component.gameEnd).toBe(true);
+    expect(component.status).toBe('O');
   });
 
 });
