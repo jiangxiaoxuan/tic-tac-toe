@@ -16,30 +16,43 @@ export class TicComponent implements OnInit {
     this.reset();
   }
 
+  message: string;
   turns: string[];
   status: string;
-  gameEnd = false;
+  gameEnd: boolean;
+  count: number;
 
   ngOnInit() {
   }
 
   onClick(buttonIndex: number) {
+    if (this.gameEnd) {
+      return;
+    }
     if (this.turns[buttonIndex] !== '') {
+      return;
+    }
+
+    this.turns[buttonIndex] = this.status;
+    this.count++;
+    this.isWin(this.status);
+    if (this.gameEnd) {
       return;
     }
     if (this.status === 'X') {
       this.status = 'O';
-      this.turns[buttonIndex] = this.status;
     } else if (this.status === 'O') {
       this.status = 'X';
-      this.turns[buttonIndex] = this.status;
     }
-    this.isWin(this.status);
+    this.message = `It's ${this.status} turn`;
   }
 
   reset() {
     this.turns = ['', '', '', '', '', '', '', '', ''];
-    this.status = 'O';
+    this.status = 'X';
+    this.gameEnd = false;
+    this.message = `It's ${this.status} turn`;
+    this.count = 0;
   }
 
   isWin(status) {
@@ -47,8 +60,11 @@ export class TicComponent implements OnInit {
       if (this.turns[winCondition.charAt(0)] === this.turns[winCondition.charAt(1)] && 
           this.turns[winCondition.charAt(1)] === this.turns[winCondition.charAt(2)] && 
           this.turns[winCondition.charAt(0)] !== '') {
-         console.log(status + ' wins');
+         this.message = `Game End: ${this.status} win`;
          this.gameEnd = true;
+      } else if (this.count === 9){
+          this.message = "Game End: It's a tie";
+          this.gameEnd = true;
       }
     }
   }
